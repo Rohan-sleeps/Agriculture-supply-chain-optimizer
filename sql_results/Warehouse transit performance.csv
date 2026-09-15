@@ -1,0 +1,7 @@
+warehouse,total_trips,usable_duration_trips,average_transit_hours,median_transit_hours,average_distance_km,calculated_duration_trips,reported_fallback_trips,unavailable_duration_trips
+WH-West,1681,1627,13.02,13.20,652.06,1223,404,54
+WH-East,1610,1558,13.01,13.10,653.77,1156,402,52
+WH-Central,1660,1622,12.99,13.00,650.50,1198,424,38
+Export-Terminal,1640,1593,12.87,12.90,644.18,1230,363,47
+WH-North,1710,1668,12.96,12.90,650.35,1307,361,42
+WH-South,1699,1647,12.81,12.90,642.38,1245,402,52

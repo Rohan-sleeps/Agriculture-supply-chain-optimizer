@@ -1,0 +1,7 @@
+crop_name,total_price_records,eligible_records,below_msp_records,below_msp_rate_percent,comparison_coverage_percent,average_price_msp_gap
+Wheat,1983,1508,630,41.78,76.05,43.24
+Maize,2064,1589,649,40.84,76.99,42.70
+Cotton,1996,1508,612,40.58,75.55,145.40
+Rice,1932,1491,602,40.38,77.17,47.53
+Sugarcane,2014,1510,586,38.81,74.98,80.99
+Mustard,2011,1525,588,38.56,75.83,136.84

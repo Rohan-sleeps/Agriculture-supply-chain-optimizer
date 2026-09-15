@@ -1,0 +1,11 @@
+mandi_id,mandi_name,crop_name,eligible_records,below_msp_records,below_msp_rate_percent,average_shortfall_when_below
+MANDI007,"Nashik Mandi",Rice,22,15,68.18,125.84
+MANDI004,"Khandwa Grain Market",Sugarcane,22,14,63.64,163.10
+MANDI041,"Gurgaon Grain Market",Sugarcane,30,18,60.00,151.35
+MANDI056,"Bilaspur Mandi",Cotton,25,15,60.00,256.14
+MANDI031,"Nangloi Jat Mandi",Maize,20,12,60.00,116.53
+MANDI042,"Erode Mandi",Rice,22,13,59.09,78.62
+MANDI046,"Baranagar Market",Sugarcane,22,13,59.09,144.84
+MANDI019,"Karimnagar Grain Market",Maize,29,17,58.62,105.75
+MANDI028,"Machilipatnam APMC",Rice,29,17,58.62,101.63
+MANDI026,"Tadipatri Mandi",Rice,24,14,58.33,94.08

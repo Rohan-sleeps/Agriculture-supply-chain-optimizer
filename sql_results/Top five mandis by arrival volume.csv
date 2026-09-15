@@ -1,0 +1,6 @@
+rank_position,mandi_id,mandi_name,district,state,total_arrivals_qtl,share_of_total_percent,top_five_combined_share_percent
+1,MANDI041,"Gurgaon Grain Market",FATEHABAD,Haryana,119244,1.96,9.62
+2,MANDI026,"Tadipatri Mandi",Hisar,Haryana,119103,1.96,9.62
+3,MANDI007,"Nashik Mandi",Amritsar,Punjab,115901,1.91,9.62
+4,MANDI002,"Solapur Mandi",Ludhiana,Punjab,115609,1.90,9.62
+5,MANDI012,"Gaya Grain Market",Patiala,Punjab,114741,1.89,9.62

@@ -1,0 +1,11 @@
+mandi_id,mandi_name,warehouse,usable_duration_trips,average_transit_hours,median_transit_hours,average_distance_km,reported_fallback_share_percent,calculated_duration_trips,calculated_only_median_hours
+MANDI051,"Gulbarga Market",Export-Terminal,21,15.10,18.30,798.30,19.05,17,18.30
+MANDI033,"South Dumdum Grain Market",WH-West,24,15.22,18.05,785.27,54.17,11,17.70
+MANDI051,"Gulbarga Market",WH-North,24,14.83,17.60,750.80,20.83,19,18.80
+MANDI046,"Baranagar Market",WH-West,26,15.88,17.35,838.92,19.23,21,17.21
+MANDI007,"Nashik Mandi",WH-Central,28,15.26,17.26,784.35,28.57,20,17.10
+MANDI003,"Vijayawada Mandi",WH-East,26,14.80,17.10,752.03,30.77,18,15.45
+MANDI006,"Kochi Mandi",WH-South,26,14.72,17.00,761.04,34.62,17,15.31
+MANDI023,"Panihati APMC",WH-East,25,14.95,16.80,754.20,36.00,16,16.85
+MANDI029,"Asansol Grain Market",WH-Central,23,15.06,16.80,744.87,21.74,18,16.70
+MANDI051,"Gulbarga Market",WH-South,25,15.21,16.71,756.63,12.00,22,17.59

@@ -1,0 +1,55 @@
+month_start,crop_name,total_arrivals_qtl,valid_quantity_records,period_status,month_on_month_change_percent
+2026-01-01,Cotton,113361,444,"Within dataset date range",NULL
+2026-02-01,Cotton,110282,437,"Within dataset date range",-2.72
+2026-03-01,Cotton,122338,473,"Within dataset date range",10.93
+2026-04-01,Cotton,117560,479,"Within dataset date range",-3.91
+2026-05-01,Cotton,118677,460,"Within dataset date range",0.95
+2026-06-01,Cotton,120073,464,"Within dataset date range",1.18
+2026-07-01,Cotton,119601,474,"Within dataset date range",-0.39
+2026-08-01,Cotton,127809,501,"Within dataset date range",6.86
+2026-09-01,Cotton,35758,138,"Partial calendar coverage",NULL
+2026-01-01,Maize,111946,450,"Within dataset date range",NULL
+2026-02-01,Maize,112378,441,"Within dataset date range",0.39
+2026-03-01,Maize,124275,481,"Within dataset date range",10.59
+2026-04-01,Maize,133133,505,"Within dataset date range",7.13
+2026-05-01,Maize,116534,465,"Within dataset date range",-12.47
+2026-06-01,Maize,117277,462,"Within dataset date range",0.64
+2026-07-01,Maize,122974,467,"Within dataset date range",4.86
+2026-08-01,Maize,134065,530,"Within dataset date range",9.02
+2026-09-01,Maize,41967,154,"Partial calendar coverage",NULL
+2026-01-01,Mustard,133131,515,"Within dataset date range",NULL
+2026-02-01,Mustard,120931,470,"Within dataset date range",-9.16
+2026-03-01,Mustard,125405,491,"Within dataset date range",3.70
+2026-04-01,Mustard,119713,453,"Within dataset date range",-4.54
+2026-05-01,Mustard,125896,487,"Within dataset date range",5.16
+2026-06-01,Mustard,127016,493,"Within dataset date range",0.89
+2026-07-01,Mustard,129678,513,"Within dataset date range",2.10
+2026-08-01,Mustard,127949,473,"Within dataset date range",-1.33
+2026-09-01,Mustard,34751,129,"Partial calendar coverage",NULL
+2026-01-01,Rice,120389,464,"Within dataset date range",NULL
+2026-02-01,Rice,97545,396,"Within dataset date range",-18.98
+2026-03-01,Rice,121680,491,"Within dataset date range",24.74
+2026-04-01,Rice,121091,477,"Within dataset date range",-0.48
+2026-05-01,Rice,118500,456,"Within dataset date range",-2.14
+2026-06-01,Rice,119936,467,"Within dataset date range",1.21
+2026-07-01,Rice,122569,493,"Within dataset date range",2.20
+2026-08-01,Rice,126872,504,"Within dataset date range",3.51
+2026-09-01,Rice,33091,136,"Partial calendar coverage",NULL
+2026-01-01,Sugarcane,120575,478,"Within dataset date range",NULL
+2026-02-01,Sugarcane,117952,452,"Within dataset date range",-2.18
+2026-03-01,Sugarcane,129448,495,"Within dataset date range",9.75
+2026-04-01,Sugarcane,117537,464,"Within dataset date range",-9.20
+2026-05-01,Sugarcane,122940,470,"Within dataset date range",4.60
+2026-06-01,Sugarcane,120929,483,"Within dataset date range",-1.64
+2026-07-01,Sugarcane,128664,491,"Within dataset date range",6.40
+2026-08-01,Sugarcane,134192,511,"Within dataset date range",4.30
+2026-09-01,Sugarcane,29903,116,"Partial calendar coverage",NULL
+2026-01-01,Wheat,135921,534,"Within dataset date range",NULL
+2026-02-01,Wheat,128126,504,"Within dataset date range",-5.73
+2026-03-01,Wheat,115737,464,"Within dataset date range",-9.67
+2026-04-01,Wheat,112618,470,"Within dataset date range",-2.69
+2026-05-01,Wheat,118605,470,"Within dataset date range",5.32
+2026-06-01,Wheat,119477,475,"Within dataset date range",0.74
+2026-07-01,Wheat,128085,493,"Within dataset date range",7.20
+2026-08-01,Wheat,132150,517,"Within dataset date range",3.17
+2026-09-01,Wheat,38582,147,"Partial calendar coverage",NULL
