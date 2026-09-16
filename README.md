@@ -20,6 +20,11 @@ Arrivals, prices, and transport reference the mandi master using standardized ID
 Fact tables are not directly joined in ways that multiply observations. Weather has **no verified district or mandi relationship**. Separate crop, date, and warehouse dimension tables are not claimed as implemented in the supplied SQL schema.
 
 ## Power BI and the Six Report Graphs
+## Interactive Power BI Dashboard
+
+[Open the interactive dashboard](https://mandi-58a3be.netlify.app/)
+
+> The dashboard opens in Power BI. Availability depends on the sharing permissions configured for the report.
 
 The Power BI dashboard is complete. The report focuses on these six graph topics:
 
