@@ -38,9 +38,8 @@ The Power BI dashboard is complete. The report focuses on these six graph topics
 The PDF recreates these six charts from the supplied SQL result tables so that figures and captions use consistent populations. They are not a claim that every supplied dashboard screenshot shows the same measure or filters. Every report graph includes **Finding, Meaning, and Limitation**. The date-sensitivity chart is excluded.
 ## Interactive Dashboard
 
-[Open the live dashboard](https://mandi-58a3be.netlify.app/)
+[Open the live dashboard](https://mandhidashbord.netlify.app/)
 
-[![Dashboard overview](dashboard/screenshots/dashboard-overview.png)](https://mandi-58a3be.netlify.app/)
 
 ### Arrivals and Prices
 
