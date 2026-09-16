@@ -20,9 +20,7 @@ Arrivals, prices, and transport reference the mandi master using standardized ID
 Fact tables are not directly joined in ways that multiply observations. Weather has **no verified district or mandi relationship**. Separate crop, date, and warehouse dimension tables are not claimed as implemented in the supplied SQL schema.
 
 ## Power BI and the Six Report Graphs
-## Interactive Power BI Dashboard
 
-[Open the interactive dashboard](https://mandi-58a3be.netlify.app/)
 
 > The dashboard opens in Power BI. Availability depends on the sharing permissions configured for the report.
 
@@ -38,6 +36,27 @@ The Power BI dashboard is complete. The report focuses on these six graph topics
 | Average transit duration by warehouse | Compare destinations with distance and coverage context |
 
 The PDF recreates these six charts from the supplied SQL result tables so that figures and captions use consistent populations. They are not a claim that every supplied dashboard screenshot shows the same measure or filters. Every report graph includes **Finding, Meaning, and Limitation**. The date-sensitivity chart is excluded.
+## Interactive Dashboard
+
+[Open the live dashboard](https://mandi-58a3be.netlify.app/)
+
+[![Dashboard overview](dashboard/screenshots/dashboard-overview.png)](https://mandi-58a3be.netlify.app/)
+
+### Arrivals and Prices
+
+![Arrivals and prices](dashboard/screenshots/arrivals-and-prices.png)
+
+### Price Risk and Logistics
+
+![Price risk and logistics](dashboard/screenshots/price-risk-and-logistics.png)
+
+### Weather and Mandi Type
+
+![Weather and mandi type](dashboard/screenshots/weather-and-mandi-type.png)
+
+### Mandi Summary
+
+![Mandi summary](dashboard/screenshots/mandi-summary.png)
 
 ## Metric Definitions
 
