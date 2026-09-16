@@ -1,56 +1,105 @@
-# Mandi-to-Market Supply Chain Optimizer
 
-### TransOrg AgentIQ Datathon · Track 3: AgriTech
+The SQL uses CTEs for readable transformations, `LAG` for month comparisons, and `ROW_NUMBER` with group counts to calculate medians from the middle observation(s). Primary keys, foreign keys, check constraints, and indexes are defined in the supplied schema.
 
-Turning messy agricultural supply-chain data into reliable insights on crop arrivals, price risk, and transport performance.
+SQL code and complete result tables are maintained separately from the PDF; the report presents interpretations and selected ranking rows.
 
-> All datasets are synthetic and provided for educational use. Findings describe the supplied data, not real agricultural markets.
+## Implemented Database Model
 
-## Business Problem
+Database: **`agritech`**.
 
-Agricultural supply-chain decisions depend on consistent information across mandis, prices, transport, and weather. The supplied datasets contain multilingual crop names, mixed units, inconsistent identifiers, missing values, and conflicting records.
+| Table | Grain | Primary key |
+|---|---|---|
+| `mandi_master` | One mandi | `mandi_id` |
+| `arrivals` | One retained arrival observation | `arrival_row_key` |
+| `prices` | One price observation | `record_id` |
+| `transport` | One trip | `trip_id_clean` |
+| `weather` | One retained weather reading | Generated `reading_id` |
 
-Our project addresses three core requirements:
+Arrivals, prices, and transport reference the mandi master using standardized IDs. Nullable relationships preserve unresolved records. Each table includes a `source_record` JSON field for the original imported CSV row.
 
-1. **Data Rescue:** clean and standardize the five datasets while preserving traceability.
-2. **Analytics Layer:** prepare relational data and clearly defined metrics for SQL.
-3. **Executive Dashboard:** enable interactive exploration in Power BI.
+Fact tables are not directly joined in ways that multiply observations. Weather has **no verified district or mandi relationship**. Separate crop, date, and warehouse dimension tables are not claimed as implemented in the supplied SQL schema.
 
-The optional AI chatbot is deferred until the core solution is complete.
+## Power BI and the Six Report Graphs
 
-## Technology Stack
+The Power BI dashboard is complete. The report focuses on these six graph topics:
 
-**Python · pandas · NumPy · Matplotlib · Seaborn · SQL · Excel · Power BI**
-
-Python handles cleaning and validation. SQL provides the analytical model, and Power BI is the planned reporting interface.
-
-## Datasets
-
-| Dataset | Original records | Purpose |
-|---|---:|---|
-| Mandi master | 60 | Mandi identifiers, locations, types, and areas |
-| Crop arrivals | 25,750 | Crop quantities, varieties, and farmer counts |
-| Prices and MSP | 12,000 | Wholesale prices and supplied benchmarks |
-| Transport logistics | 10,400 | Trips, distances, timestamps, and vehicles |
-| Weather sensors | 15,000 | Temperature, rainfall, humidity, and timestamps |
-
-## Data Rescue Results
-
-| Dataset | Completed cleaning and validation |
+| Graph | Purpose |
 |---|---|
-| Mandi master | Removed 3 exact duplicates; retained 57 unique mandis; recovered 4 missing states from consistent master relationships |
-| Arrivals | Removed 750 exact duplicates; standardized crop names and IDs; converted quantities to quintals; flagged negative quantities |
-| Prices | Parsed currency strings; validated price ordering; standardized crops and IDs; preserved district conflicts and missing benchmarks |
-| Transport | Removed 400 exact duplicates; converted distances to kilometres; reconciled reported and calculated durations; standardized identifiers |
-| Weather | Converted temperature and rainfall units; handled UTC/IST timestamps; flagged invalid measurements and conflicting readings |
+| Arrival volume by crop | Compare valid volume and crop mix |
+| Monthly arrivals by crop | Show changes over time with partial September labelled |
+| Top five mandis by arrivals | Show volume concentration |
+| Below supplied MSP rate by crop | Compare eligible-observation price exposure |
+| Monthly Wheat modal price versus supplied MSP | Compare averages on the same eligible population |
+| Average transit duration by warehouse | Compare destinations with distance and coverage context |
 
-### Important quality decisions
+The PDF recreates these six charts from the supplied SQL result tables so that figures and captions use consistent populations. They are not a claim that every supplied dashboard screenshot shows the same measure or filters. Every report graph includes **Finding, Meaning, and Limitation**. The date-sensitivity chart is excluded.
 
-- Preserved original values alongside cleaned fields.
-- Kept missing values distinct from zero.
-- Retained invalid records with flags instead of silently deleting them.
-- Used the mandi master as the documented reporting-location reference.
-- Preserved date-format and timezone assumptions.
+## Metric Definitions
+
+**Arrival volume:** sum valid `arrival_quantity_qtl`. There are **23,767 valid quantity records** out of 25,000 retained arrivals.
+
+**Below supplied MSP rate:** observations with `modal_price < msp` divided by observations with both positive values. The overall denominator is **9,131**, not all price records or unique mandis. Missing comparisons are excluded, not counted as `False`.
+
+**Price–MSP gap:** `modal_price - msp` for eligible records. Mean prices and mean supplied MSP in the monthly comparison use the same observations and are not arrival-weighted.
+
+**Transit duration:** positive timestamp-derived duration where available, followed by a positive reported fallback when calculation is unavailable. Of 10,000 trips, **7,359** use calculated durations, **2,356** use reported fallbacks, and **285** remain unavailable or invalid.
+
+**Route and warehouse comparisons:** retain trip counts, distance context, and duration-source coverage. Long duration does not establish a missed delivery commitment.
+
+## Assumptions and Limitations
+
+- **Dates:** separator conventions were inferred from observed formats; 4,703 arrival dates and 2,262 price dates retain assumption flags. September coverage ends on 9 September for the arrival/price analyses and is not a full-month comparison.
+- **Prices:** currency is INR, but the quantity basis is unspecified. Comparisons use the common basis implied by the challenge; prices are not labelled INR per quintal, and supplied benchmarks are not independently verified official rates.
+- **Locations:** 8,366 price records conflict with the master district. Reporting uses the master; 2,004 price records still have no reporting district. Synthetic mandi names must not be used to infer real geography.
+- **Crop groups:** broad labels, especially Rice/Paddy/Basmati, support reporting but do not establish product or variety equivalence.
+- **Transport:** no SLA or promised arrival is supplied. The report ranks durations, not confirmed delays. Reported fallbacks remain identifiable.
+- **Weather:** sensor-to-district mapping and rainfall measurement intervals are unresolved. District rainfall totals and rainfall–arrival causal claims are not supported.
+- **Unavailable business measures:** shipment quantities, realized sales, investment costs, and customer histories are absent; warehouse crop volume, revenue, ROI, and churn are not inferred.
+- **Precision:** the small arrival SQL/Python total difference is disclosed above and still requires reconciliation.
+
+## Running the Project
+
+1. Install the notebook and database-loader dependencies used by your local environment.
+2. Configure raw-data, cleaned-data, and database connection paths; do not commit passwords.
+3. Run mandi master cleaning first, followed by the remaining dataset notebooks.
+4. Execute the supplied MySQL `schema.sql` to create the `agritech` database and five tables.
+5. Run the MySQL-compatible loader, loading the master before dependent records.
+6. Run the database validation checks, then the eight analytical queries.
+7. Export query results and refresh the Power BI report using the same metric definitions.
+
+Typical notebook setup:
+
+```bash
+python -m pip install pandas numpy matplotlib seaborn openpyxl jupyterlab
+python -m jupyterlab
+```
+
+Use the MySQL driver required by the actual loader; earlier PostgreSQL connection examples are not interchangeable with the final MySQL schema.
+
+### Import and export conventions
+
+- Cleaned CSVs use UTF-8 with BOM and `NA` for missing values.
+- Convert exact `NA` markers to SQL `NULL` or Power BI `null` before assigning data types.
+- Keep identifiers as text, measurements as decimal values, and farmer counts as nullable integers.
+- Weather CSV timestamps retain the IST offset. The MySQL `DATETIME` field is timezone-naive, so the loader must retain the intended IST local time; the schema alone does not preserve an offset.
+- Use cleaned analytical columns for metrics and `source_*`/`source_record` for traceability.
+- Count records with SQL `COUNT(*)`, not a nullable source ID.
+
+Notebook restart-and-run-all reproducibility across a fresh machine has not been independently verified; local paths may need updating.
+
+## Deliverables and Status
+
+- **Data preparation:** cleaning and validation completed for the five datasets; schema and query outputs demonstrate downstream loading and analysis.
+- **MySQL:** database creation, table imports, validation, and eight analyses completed by the team; SQL and CSV results supplied for review.
+- **Power BI:** dashboard completion confirmed by the team and screenshots provided.
+- **Report:** 10-page PDF created with eight analyses, six SQL-derived charts, selected ranking tables, and documented limitations.
+- **Remaining quality issue:** reconcile the 131.86-qtl arrival total difference before claiming exact Python/SQL agreement.
+
+The source queries and CSV results were inspected for documentation and reporting; the live database and interactive Power BI model were not independently re-executed during report preparation.
+
+## Main Takeaway
+
+The project creates a traceable analytical foundation rather than hiding imperfect data. Balanced crop volumes, widespread below-benchmark price observations, and route-level duration differences can be explored with explicit denominators, source flags, and limitations.- Preserved date-format and timezone assumptions.
 - Avoided unsupported corrections based on synthetic location names.
 - Kept observation tables separate to prevent joins from multiplying totals.
 
